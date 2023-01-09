@@ -14,8 +14,7 @@ export const Label = styled.label`
     color: #000;
     font-size: 18px;
 
-    & input:focus ~ span,
-    & input:valid ~ span {
+    & input:focus ~ span {
         transform: translateX(-13px) translateY(-30px);
         font-size: 20px;
     }
