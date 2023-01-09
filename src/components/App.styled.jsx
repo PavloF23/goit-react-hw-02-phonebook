@@ -33,14 +33,15 @@ export const AppStyle = styled.div`
   p {
     margin: 0;
   }
-`;
 
-export const Phonebook = styled.h1`
+
+h1{
 font-size: 40px;
 line-height: 1.5;
-`;
+}
 
-export const Contacts = styled.h2`
+h2{
 font-size: 35px;
 line-height: 1.5;
+}
 `;
