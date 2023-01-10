@@ -39,27 +39,25 @@ deleteContact = contactId => {
   }));
 };
 
+visibleContacts = () => {
+  return  this.state.contacts.filter(contact =>
+  contact.name.toLowerCase().includes(this.state.filter.toLowerCase()),);
+};
+
 render() {
     
-  const visibleContacts = this.state.contacts.filter(contact => contact.name.toLowerCase().includes(this.state.filter.toLowerCase()),);
-
   return (
-    <AppStyle
-      style={{
-        height: '100vh',
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center',
-        fontSize: 40,
-        color: '#010101'
-      }}
-    >
+    <AppStyle>
       <Container>
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />     
         <h2>Contacts</h2>
         <Filter value={this.state.filter} onChange={this.changeFilter} />
-        <ContactList contacts={visibleContacts} deleteContact={this.deleteContact} />
+        {this.state.contacts.length > 0 ? (
+        <ContactList contacts={this.visibleContacts()} deleteContact={this.deleteContact} />
+        ) : (
+          <p>Your phonebook is empty. Please add contact.</p>
+        )}
       </Container>
     </AppStyle>
   );
